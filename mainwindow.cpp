@@ -13,3 +13,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::resizeEvent(QResizeEvent * event)
+{
+    ui->edtText->resize(ui->centralwidget->size());
+
+    QMainWindow::resizeEvent(event);
+}
+
