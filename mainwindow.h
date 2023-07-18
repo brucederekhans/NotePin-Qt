@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QAbstractButton>
 #include <windows.h>
 
 QT_BEGIN_NAMESPACE
@@ -21,5 +23,6 @@ private:
 
 protected:
     void resizeEvent(QResizeEvent * event) override;
+    void closeEvent(QCloseEvent * event) override;
 };
 #endif // MAINWINDOW_H
