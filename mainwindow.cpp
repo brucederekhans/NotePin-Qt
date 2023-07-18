@@ -31,7 +31,9 @@ void MainWindow::closeEvent(QCloseEvent * event)
         pMsgBox->setStandardButtons(QMessageBox::Close | QMessageBox::Cancel);
         pMsgBox->buttons().at(0)->setText("关闭");
         pMsgBox->buttons().at(1)->setText("不关闭");
+        SetWindowPos(reinterpret_cast<HWND>(this->winId()), HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
         int buttunPressed = pMsgBox->exec();
+        SetWindowPos(reinterpret_cast<HWND>(this->winId()), HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
         delete pMsgBox;
         if(buttunPressed == QMessageBox::Close)
         {
